@@ -171,6 +171,23 @@ li {
   width: 100%;
 }
 
+.rightTitle {
+  text-align: right;
+}
+.rightTitle h3 {
+  float: left;
+}
+
+.rightTag {
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 7px;
+  padding: 4px 6px;
+  background: #f2f5fa;
+}
+
+
 /* picture */
 .rightPic {
   padding: 10px;

@@ -14,17 +14,17 @@
           <nuxt-link to="/" class="left-btn">文章</nuxt-link>
           <nuxt-link to="/pictures" class="left-btn">相册</nuxt-link>
           <nuxt-link to="/notes" class="left-btn">便签</nuxt-link>
-          <nuxt-link to="/posts" class="left-btn">关于</nuxt-link>
+          <nuxt-link to="/about" class="left-btn">关于</nuxt-link>
         </div>
         <div class="leftTags box-shadow-class">
           <div class="tagTitle">标签</div>
           <div class="leftTagWrap">
-            <a class="leftTag">标签的</a>
-            <a class="leftTag">标签的是</a>
-            <a class="leftTag">标签</a>
-            <a class="leftTag">标签的</a>
-            <a class="leftTag">标签想</a>
-            <a class="leftTag">标签</a>
+            <nuxt-link to="/tag/1" class="leftTag">标签一</nuxt-link>
+            <nuxt-link to="/tag/2" class="leftTag">标签二</nuxt-link>
+            <nuxt-link to="/tag/3" class="leftTag">标签三</nuxt-link>
+            <nuxt-link to="/tag/4" class="leftTag">标签四</nuxt-link>
+            <nuxt-link to="/tag/5" class="leftTag">标签五</nuxt-link>
+            <nuxt-link to="/tag/6" class="leftTag">标签六</nuxt-link>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@
 
 <script>
   export default {
-    name: "posts"
+    name: "_id"
   }
 </script>
 
