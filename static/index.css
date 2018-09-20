@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  color: #808080;
+  background: #f2f5fa;
+}
+
+a {
+  color: #808080;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.nuxt-link-exact-active {
+  background: #409EFF !important;
+  color: #fff !important;
+}
+
+.box-shadow-class {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.188235) 0px 17px 20px 0px;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 20px;
+}
+
+.topPic {
+  height: 300px;
+  width: 100%;
+  background: url("~static/images/yourname.jpg") fixed center;
+  background-size: cover;
+}
+
+.avatar {
+  border-radius: 70px;
+  height: 140px;
+  width: 140px;
+  overflow: hidden;
+}
+
+.avatar img {
+  height: 140px;
+  width: 140px;
+}
+
+.nickname {
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  line-height: 40px;
+  text-shadow: 0 0 5px #ccc;
+}
+
+.left {
+  width: 260px;
+
+}
+
+.leftCategory {
+  display: flex;
+}
+
+.left-btn {
+  display: inline-block;
+  flex: 1;
+  margin: 5px;
+  text-align: center;
+  border-radius: 7px;
+  padding: 5px 10px;
+  background: #f2f5fa;
+}
+
+
+
+@media screen and (min-width: 850px){
+  .top {
+    position: absolute;
+    top: -190px;
+    left: 70px;
+    width: 140px;
+    background: transparent;
+  }
+
+  .leftTags {
+    margin-top: 40px;
+  }
+
+  .tagTitle {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 2px dashed #f2f5fa;
+  }
+
+  .leftTagWrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .leftTag {
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    border-radius: 7px;
+    padding: 5px 10px;
+    background: #f2f5fa;
+  }
+
+  .right {
+    margin-left: 280px;
+    position: absolute;
+    top: -100px;
+    width: calc(100% - 320px);
+    background: transparent;
+  }
+
+}
+
+@media screen and (max-width: 850px){
+  .top {
+    position: absolute;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    background: transparent;
+  }
+
+  .leftTags {
+    display: none;
+  }
+
+  .leftCategory {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    background: transparent;
+  }
+
+}
+
+/* index */
+.rightAllLi {
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.rightImg {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.rightImg img {
+  width: 100%;
+}
+
+/* picture */
+.rightPic {
+  padding: 10px;
+}
+
+.rightPic p {
+  margin-bottom: 8px;
+}
+
+.rightPic .imageList {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rightPic .imageList .imgLi {
+  width: calc(50% - 5px);
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.rightPic .imageList .imgLi img {
+  height: 100%;
+  width: 100%;
+}
+
+/* note */
+.note-right {
+  position: relative;
+}
+
+.note-border {
+  height: calc(100% - 40px);
+  border: 2px solid #f2f5fa;
+  width: 0;
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  transform: translateX(-50%);
+}
+
+.note-content {
+  padding-top: 10px;
+  margin-left: 50px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+
+.topBall {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background: #f2f5fa;
+  left: 35px;
+  transform: translateX(-50%);
+  box-shadow: rgba(0, 0, 0, 0.188235) 0px 5px 20px 0px;
+}
+
+.note {
+  margin-right: 10px;
+  border-radius: 12px;
+  background: #f2f5fa;
+  padding:10px;
+  box-shadow: rgba(0, 0, 0, 0.188235) 0px 5px 20px 0px;
+}
+
+.note-year, .note-md {
+  text-align: center;
+  font-size: 12px;
+  line-height: 25px;
+}
+
+.note-year {
+  border-radius: 50px 50px 0 0;
+  height: 25px;
+  width: 50px;
+  background: #808080;
+  color: #f2f5fa;
+}
+
+/* post */
+.rightPost {
+  padding: 10px;
+}
+
+.rightPost .rightImg {
+  position: relative;
+}
+
+.postTitle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.postTitle h1 {
+  color: #fff;
+  text-shadow: 0 0 5px #ccc;
+}
+
+.postInfo {
+  font-size: 14px;
+  line-height: 30px;
+  border-bottom: 2px dashed #f2f5fa;
+}
+
+.postMain {
+  padding: 10px 0;
+}
+
+/* about */
+.rightAbout {
+  height: 1000px;
+}
