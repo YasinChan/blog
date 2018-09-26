@@ -84,7 +84,11 @@ li {
   background: #f2f5fa;
 }
 
-
+.left-btn:hover {
+  transition: all 0.3s;
+  background: #409eff;
+  color: #fff;
+}
 
 @media screen and (min-width: 850px){
   .top {
@@ -117,6 +121,12 @@ li {
     border-radius: 7px;
     padding: 5px 10px;
     background: #f2f5fa;
+  }
+
+  .leftTag:hover {
+    transition: all 0.3s;
+    background: #409eff;
+    color: #fff;
   }
 
   .right {

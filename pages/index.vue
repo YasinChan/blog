@@ -29,7 +29,9 @@
         </div>
       </div>
       <div class="right">
-        <nuxt-child/>
+        <transition>
+          <nuxt-child/>
+        </transition>
       </div>
     </div>
   </div>
@@ -42,6 +44,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  /*.fade-enter-active, .fade-leave-active {*/
+    /*transition: opacity .1s;*/
+  /*}*/
+  /*.fade-enter, .fade-leave-to !* .fade-leave-active below version 2.1.8 *! {*/
+    /*opacity: 0;*/
+  /*}*/
+  .page-enter-active,
+  .page-leave-active {
+    transition: all 0.3s;
+  }
+  .page-enter, .page-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+    transform: translateY(5px);
+    opacity: 0;
+  }
 </style>
 
