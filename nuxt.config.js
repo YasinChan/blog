@@ -14,7 +14,7 @@ module.exports = {
     ]
   },
   css: [
-    '~static/index.css'
+    '~assets/index.css'
   ],
   /*
   ** Customize the progress bar color
@@ -37,6 +37,8 @@ module.exports = {
         })
       }
     }
-  }
+  },
+
+  plugins: ['~/plugins/vue-lazy']
 }
 

@@ -19,12 +19,7 @@
         <div class="leftTags box-shadow-class">
           <div class="tagTitle">标签</div>
           <div class="leftTagWrap">
-            <nuxt-link to="/tag/1" class="leftTag">标签一</nuxt-link>
-            <nuxt-link to="/tag/2" class="leftTag">标签二</nuxt-link>
-            <nuxt-link to="/tag/3" class="leftTag">标签三</nuxt-link>
-            <nuxt-link to="/tag/4" class="leftTag">标签四</nuxt-link>
-            <nuxt-link to="/tag/5" class="leftTag">标签五</nuxt-link>
-            <nuxt-link to="/tag/6" class="leftTag">标签六</nuxt-link>
+            <nuxt-link class="leftTag" v-for="item in tags" :to="`/tag/${item.id}`" :key="item.id">{{item.title}}</nuxt-link>
           </div>
         </div>
       </div>
@@ -40,7 +35,36 @@
 <script>
 
 export default {
-
+  data() {
+    return {
+      tags: [],
+    }
+  },
+  mounted() {
+    // TODO 请求 tags
+    this.tags = [
+      {
+        id: 1,
+        title: '标签一'
+      },
+      {
+        id: 2,
+        title: '标签二'
+      },
+      {
+        id: 3,
+        title: '标签三'
+      },
+      {
+        id: 4,
+        title: '标签四'
+      },
+      {
+        id: 5,
+        title: '标签五'
+      },
+    ]
+  }
 }
 </script>
 

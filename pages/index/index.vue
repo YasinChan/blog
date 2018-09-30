@@ -1,44 +1,116 @@
 <template>
   <ul class="rightAllUl">
-    <li class="rightAllLi box-shadow-class">
-      <nuxt-link to="/post/1">
+    <li class="rightAllLi box-shadow-class" v-for="item in posts" :key="item.id">
+      <nuxt-link :to="`/post/${item.id}`">
         <div class="rightImg">
-          <img src="~static/images/yourname.jpg" alt="">
+          <img class="image" v-lazy="item.picture" alt="">
+          <div class="postTitle">
+            <h1>{{ item.title }}</h1>
+          </div>
         </div>
       </nuxt-link>
       <div class="rightTitle">
-        <nuxt-link to="/post/1">
-          <h3>Website is under construction</h3>
-        </nuxt-link>
-        <nuxt-link to="/tag/1" class="rightTag">标签一</nuxt-link>
-        <nuxt-link to="/tag/4" class="rightTag">标签四</nuxt-link>
-      </div>
-    </li>
-    <li class="rightAllLi box-shadow-class">
-      <nuxt-link to="/post/2">
-        <div class="rightImg">
-          <img src="~static/images/yourname.jpg" alt="">
-        </div>
-      </nuxt-link>
-      <div class="rightTitle">
-        <nuxt-link to="/post/2">
-          <h3>Website is under construction</h3>
-        </nuxt-link>
-        <nuxt-link to="/tag/2" class="rightTag">标签二</nuxt-link>
-      </div>
-    </li>
-    <li class="rightAllLi box-shadow-class">
-      <nuxt-link to="/post/3">
-        <div class="rightImg">
-          <img src="~static/images/yourname.jpg" alt="">
-        </div>
-      </nuxt-link>
-      <div class="rightTitle">
-        <nuxt-link to="/post/3">
-          <h3>Website is under construction</h3>
-        </nuxt-link>
-        <nuxt-link to="/tag/3" class="rightTag">标签三</nuxt-link>
+        <span style="float: left;">{{ item.created_at }}</span>
+        <nuxt-link class="rightTag" v-for="tagItem in item.tags" :to="`/tag/${tagItem.id}`" :key="tagItem.id">{{tagItem.title}}</nuxt-link>
       </div>
     </li>
   </ul>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        posts: []
+      }
+    },
+    mounted() {
+      this.posts =  [
+        {
+          id: 1,
+          title: '文章一',
+          created_at: '2018-10-1 10:10',
+          modified_at: '2018-10-1 10:10',
+          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
+          tags: [
+            {
+              id: 1,
+              title: '标签一'
+            },
+            {
+              id: 2,
+              title: '标签二'
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: '文章二',
+          created_at: '2018-10-1 10:10',
+          modified_at: '2018-10-1 10:10',
+          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
+          tags: [
+            {
+              id: 1,
+              title: '标签一'
+            },
+            {
+              id: 2,
+              title: '标签二'
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: '文章三',
+          created_at: '2018-10-1 10:10',
+          modified_at: '2018-10-1 10:10',
+          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
+          tags: [
+            {
+              id: 1,
+              title: '标签一'
+            },
+            {
+              id: 2,
+              title: '标签二'
+            }
+          ]
+        },
+        {
+          id: 4,
+          title: '文章四',
+          created_at: '2018-10-1 10:10',
+          modified_at: '2018-10-1 10:10',
+          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
+          tags: [
+            {
+              id: 1,
+              title: '标签一'
+            },
+            {
+              id: 2,
+              title: '标签二'
+            }
+          ]
+        },
+        {
+          id: 5,
+          title: '文章五',
+          created_at: '2018-10-1 10:10',
+          modified_at: '2018-10-1 10:10',
+          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
+          tags: [
+            {
+              id: 1,
+              title: '标签一'
+            },
+            {
+              id: 2,
+              title: '标签二'
+            }
+          ]
+        },
+      ]
+    }
+  }
+</script>

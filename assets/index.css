@@ -139,6 +139,23 @@ li {
 
 }
 
+.image[lazy=loaded], .image[lazy=error], image[lazy=loaded] {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 850px){
   .top {
     position: absolute;
@@ -175,14 +192,19 @@ li {
   border-radius: 12px;
   overflow: hidden;
   background: #fff;
+  position: relative;
+  height: 450px;
 }
 
 .rightImg img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .rightTitle {
   text-align: right;
+  padding-top: 12px;
 }
 .rightTitle h3 {
   float: left;
@@ -195,6 +217,7 @@ li {
   border-radius: 7px;
   padding: 4px 6px;
   background: #f2f5fa;
+  margin-left: 6px;
 }
 
 
@@ -216,7 +239,7 @@ li {
 
 .rightPic .imageList .imgLi {
   width: calc(50% - 5px);
-  height: 200px;
+  height: 220px;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -225,6 +248,7 @@ li {
 .rightPic .imageList .imgLi img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 /* note */
@@ -287,9 +311,9 @@ li {
   padding: 10px;
 }
 
-.rightPost .rightImg {
-  position: relative;
-}
+/*.rightPost .rightImg {*/
+  /*position: relative;*/
+/*}*/
 
 .postTitle {
   position: absolute;
