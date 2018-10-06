@@ -1,27 +1,51 @@
 <template>
   <div class="rightPost box-shadow-class">
     <div class="rightImg">
-      <img src="~static/images/yourname.jpg" alt="">
+      <img :src="blogInfo.picture" alt="">
       <div class="postTitle">
-        <h1>标题</h1>
+        <h1>{{ blogInfo.title }}</h1>
       </div>
     </div>
     <div class="postInfo">
-      2018.10.10 11:11
+      {{ blogInfo.created_at }}
     </div>
-    <div class="postMain">
-      <p>这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文</p>
-      <p>这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文</p>
+    <div class="postMain" v-html="blogInfo.rendered"></div>
+    <div class="tag">
+      <nuxt-link class="rightTag" v-for="tagItem in blogInfo.tags" :to="`/tag/${tagItem.id}`" :key="tagItem.id">{{tagItem.name}}</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
+  import tinydate from 'tinydate';
+  const stamp = tinydate('{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}');
+  import { getPostById } from '~/service/api.js';
   export default {
-
+    data() {
+      return {
+        blogInfo: {}
+      }
+    },
+    // asyncData ({ store, params }) {
+    //   debugger;
+    //   getPostById(params.id).then(res => {
+    //     debugger;
+    //   })
+    // },
+    mounted() {
+      getPostById(this.$route.params.id).then(res => {
+        let result = res.data.result
+        result.created_at = stamp(new Date(result.created_at))
+        result.updated_at = stamp(new Date(result.updated_at))
+        this.blogInfo = result;
+      })
+    }
   }
 </script>
 
 <style scoped>
-
+.tag {
+  text-align: right;
+  padding-top: 10px;
+}
 </style>

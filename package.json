@@ -13,8 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "nanoid": "^1.2.5",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "tinydate": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+ol{padding-left: 20px;}
+
 body, html {
   height: 100%;
   width: 100%;
@@ -17,7 +19,7 @@ a {
 }
 
 li {
-  list-style-type: none;
+  /*list-style-type: none;*/
 }
 
 .nuxt-link-exact-active {
@@ -29,6 +31,7 @@ li {
   background: #fff;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.188235) 0px 17px 20px 0px;
+  margin-bottom: 40px;
 }
 
 .container {
@@ -334,7 +337,8 @@ li {
 }
 
 .postMain {
-  padding: 10px 0;
+  padding: 20px;
+  border-bottom: 2px dashed #f2f5fa;
 }
 
 /* about */
