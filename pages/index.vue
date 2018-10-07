@@ -19,7 +19,7 @@
         <div class="leftTags box-shadow-class">
           <div class="tagTitle">标签</div>
           <div class="leftTagWrap">
-            <nuxt-link class="leftTag" v-for="item in tags" :to="`/tag/${item.id}`" :key="item.id">{{item.title}}</nuxt-link>
+            <nuxt-link class="leftTag" v-for="item in tags" :to="`/tag/${item.id}`" :key="item.id">{{item.name}}</nuxt-link>
           </div>
         </div>
       </div>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+  import { getTags } from '~/service/api.js';
 
 export default {
   data() {
@@ -42,28 +43,9 @@ export default {
   },
   mounted() {
     // TODO 请求 tags
-    this.tags = [
-      {
-        id: 1,
-        title: '标签一'
-      },
-      {
-        id: 2,
-        title: '标签二'
-      },
-      {
-        id: 3,
-        title: '标签三'
-      },
-      {
-        id: 4,
-        title: '标签四'
-      },
-      {
-        id: 5,
-        title: '标签五'
-      },
-    ]
+    getTags().then( res => {
+      this.tags = res.data.result;
+    })
   }
 }
 </script>

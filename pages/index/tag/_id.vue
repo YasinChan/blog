@@ -11,15 +11,15 @@
       </nuxt-link>
       <div class="rightTitle">
         <span style="float: left;">{{ item.created_at }}</span>
-        <nuxt-link class="rightTag" v-for="tagItem in item.tags" :to="`/tag/${tagItem.id}`" :key="tagItem.id">{{tagItem.title}}</nuxt-link>
+        <nuxt-link class="rightTag" v-for="tagItem in item.tags" :to="`/tag/${tagItem.id}`" :key="tagItem.id">{{tagItem.name}}</nuxt-link>
       </div>
     </li>
   </ul>
 </template>
 <script>
-  const getData = () => {
-    // TODO 放获取数据的 ajax
-  }
+  import tinydate from 'tinydate';
+  const stamp = tinydate('{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}');
+  import { getPostsByTagId } from '~/service/api.js';
   export default {
     data() {
       return {
@@ -27,184 +27,32 @@
       }
     },
     async asyncData ({ store, params }) {
+      let res = await getPostsByTagId(params.id)
+      // getPostsByTagId(params.id).then(res => {
+      //   debugger;
+      //   console.log(res);
+      //   return {
+      //     posts: res.data.result
+      //   }
+      // })
+      let result = res.data.result
+      result.forEach(v => {
+        v.created_at = stamp(new Date(v.created_at))
+        v.updated_at = stamp(new Date(v.updated_at))
+      })
       return {
-        posts: [
-          {
-            id: 1,
-            title: '文章一',
-            created_at: '2018-10-1 10:10',
-            modified_at: '2018-10-1 10:10',
-            picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-            tags: [
-              {
-                id: 1,
-                title: '标签一'
-              },
-              {
-                id: 2,
-                title: '标签二'
-              }
-            ]
-          },
-          {
-            id: 2,
-            title: '文章二',
-            created_at: '2018-10-1 10:10',
-            modified_at: '2018-10-1 10:10',
-            picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-            tags: [
-              {
-                id: 1,
-                title: '标签一'
-              },
-              {
-                id: 2,
-                title: '标签二'
-              }
-            ]
-          },
-          {
-            id: 3,
-            title: '文章三',
-            created_at: '2018-10-1 10:10',
-            modified_at: '2018-10-1 10:10',
-            picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-            tags: [
-              {
-                id: 1,
-                title: '标签一'
-              },
-              {
-                id: 2,
-                title: '标签二'
-              }
-            ]
-          },
-          {
-            id: 4,
-            title: '文章四',
-            created_at: '2018-10-1 10:10',
-            modified_at: '2018-10-1 10:10',
-            picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-            tags: [
-              {
-                id: 1,
-                title: '标签一'
-              },
-              {
-                id: 2,
-                title: '标签二'
-              }
-            ]
-          },
-          {
-            id: 5,
-            title: '文章五',
-            created_at: '2018-10-1 10:10',
-            modified_at: '2018-10-1 10:10',
-            picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-            tags: [
-              {
-                id: 1,
-                title: '标签一'
-              },
-              {
-                id: 2,
-                title: '标签二'
-              }
-            ]
-          },
-        ]
+        posts: result
       }
     },
     mounted() {
-      this.posts = [
-        {
-          id: 1,
-          title: '文章一',
-          created_at: '2018-10-1 10:10',
-          modified_at: '2018-10-1 10:10',
-          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-          tags: [
-            {
-              id: 1,
-              title: '标签一'
-            },
-            {
-              id: 2,
-              title: '标签二'
-            }
-          ]
-        },
-        {
-          id: 2,
-          title: '文章二',
-          created_at: '2018-10-1 10:10',
-          modified_at: '2018-10-1 10:10',
-          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-          tags: [
-            {
-              id: 1,
-              title: '标签一'
-            },
-            {
-              id: 2,
-              title: '标签二'
-            }
-          ]
-        },
-        {
-          id: 3,
-          title: '文章三',
-          created_at: '2018-10-1 10:10',
-          modified_at: '2018-10-1 10:10',
-          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-          tags: [
-            {
-              id: 1,
-              title: '标签一'
-            },
-            {
-              id: 2,
-              title: '标签二'
-            }
-          ]
-        },
-        {
-          id: 4,
-          title: '文章四',
-          created_at: '2018-10-1 10:10',
-          modified_at: '2018-10-1 10:10',
-          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-          tags: [
-            {
-              id: 1,
-              title: '标签一'
-            },
-            {
-              id: 2,
-              title: '标签二'
-            }
-          ]
-        },
-        {
-          id: 5,
-          title: '文章五',
-          created_at: '2018-10-1 10:10',
-          modified_at: '2018-10-1 10:10',
-          picture: 'https://cdn.hk01.com/di/media/images/283771/org/a5e88eeda6f08f933c4c6bbad9d9fc8b.png/9oJBcT5ZtUBuJsxIaPdioasXmSOmYWRDwbT7QcG0-0E?v=w1920r16_9',
-          tags: [
-            {
-              id: 1,
-              title: '标签一'
-            },
-            {
-              id: 2,
-              title: '标签二'
-            }
-          ]
-        },
-      ]
+      getPostsByTagId(this.$route.params.id).then(res => {
+        let result = res.data.result
+        result.forEach(v => {
+          v.created_at = stamp(new Date(v.created_at))
+          v.updated_at = stamp(new Date(v.updated_at))
+        })
+        this.posts = result;
+      })
     }
   }
 </script>

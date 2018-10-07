@@ -7,7 +7,14 @@
       </div>
     </div>
     <div class="postInfo">
-      {{ blogInfo.created_at }}
+      <span>修改时间：</span>
+      <span style="border-right: 1px dashed;">
+        {{ blogInfo.updated_at }}
+      </span>
+      <span style="padding-left: 6px;">创建时间：</span>
+      <span>
+        {{ blogInfo.created_at }}
+      </span>
     </div>
     <div class="postMain" v-html="blogInfo.rendered"></div>
     <div class="tag">
@@ -26,12 +33,16 @@
         blogInfo: {}
       }
     },
-    // asyncData ({ store, params }) {
-    //   debugger;
-    //   getPostById(params.id).then(res => {
-    //     debugger;
-    //   })
-    // },
+    asyncData ({ store, params }) {
+      getPostById(params.id).then(res => {
+        let result = res.data.result
+        result.created_at = stamp(new Date(result.created_at))
+        result.updated_at = stamp(new Date(result.updated_at))
+        return {
+          blogInfo: result
+        }
+      })
+    },
     mounted() {
       getPostById(this.$route.params.id).then(res => {
         let result = res.data.result

@@ -17,3 +17,7 @@ axiosInstance.interceptors.request.use(
 export const getPosts = () => axiosInstance.get('/api/post');
 
 export const getPostById = id => axiosInstance.get(`/api/post/${id}`);
+
+export const getPostsByTagId = id => axiosInstance.get(`/api/postbytagid/${id}`)
+
+export const getTags = () => axiosInstance.get('/api/tag');
