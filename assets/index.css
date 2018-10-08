@@ -11,6 +11,7 @@ body, html {
   width: 100%;
   color: #808080;
   background: #f2f5fa;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
 }
 
 a {
@@ -18,8 +19,8 @@ a {
   text-decoration: none;
 }
 
-li {
-  /*list-style-type: none;*/
+ul>li {
+  list-style-type: none;
 }
 
 .nuxt-link-exact-active {
@@ -42,9 +43,9 @@ li {
 }
 
 .topPic {
-  height: 400px;
+  height: 300px;
   width: 100%;
-  background: url("~static/images/yourname.jpg") fixed center;
+  background: url("https://qiniu.yasinchan.com/image/default1.jpg") fixed center;
   background-size: cover;
 }
 
@@ -246,7 +247,12 @@ li {
   height: 220px;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.188235) 0px 5px 20px 0px;
+}
+
+.imgLi:hover {
+  cursor: pointer;
 }
 
 .rightPic .imageList .imgLi img {

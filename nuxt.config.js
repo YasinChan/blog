@@ -2,6 +2,12 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
+
   head: {
     title: 'Yasinchan Blog',
     meta: [
@@ -19,7 +25,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: 'red' },
   /*
   ** Build configuration
   */
@@ -40,6 +46,6 @@ module.exports = {
     }
   },
 
-  plugins: ['~/plugins/vue-lazy']
+  plugins: ['~/plugins/vue-lazy', '~plugins/vue-js-modal']
 }
 

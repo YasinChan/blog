@@ -21,3 +21,5 @@ export const getPostById = id => axiosInstance.get(`/api/post/${id}`);
 export const getPostsByTagId = id => axiosInstance.get(`/api/postbytagid/${id}`)
 
 export const getTags = () => axiosInstance.get('/api/tag');
+
+export const getUploads = () => axiosInstance.get("/api/getUploads");
