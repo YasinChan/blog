@@ -5,7 +5,7 @@
         <img class="image" v-lazy="item.url" alt="">
       </div>
     </div>
-    <modal height="auto" width="60%" :scrollable="true" name="hello-world">
+    <modal transition="show" height="auto" width="60%" :scrollable="true" name="hello-world">
       <div style="padding: 10px;">
         <img style="width: 100%;" :src="showImage" alt="">
         <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed">{{ showTime }}</div>

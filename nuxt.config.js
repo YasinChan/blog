@@ -20,12 +20,17 @@ module.exports = {
     ]
   },
   css: [
-    '~assets/index.css'
+    '~assets/index.css',
+    '~assets/github-markdown.css'
   ],
   /*
   ** Customize the progress bar color
   */
-  loading: { color: 'red' },
+  loading: {
+    color: '#67C23A',
+    failedColor: '#F56C6C',
+    height: '2px'
+  },
   /*
   ** Build configuration
   */

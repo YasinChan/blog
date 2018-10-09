@@ -16,7 +16,7 @@
         {{ blogInfo.created_at }}
       </span>
     </div>
-    <div class="postMain" v-html="blogInfo.rendered"></div>
+    <div class="postMain markdown-body" v-html="blogInfo.rendered"></div>
     <div class="tag">
       <nuxt-link class="rightTag" v-for="tagItem in blogInfo.tags" :to="`/tag/${tagItem.id}`" :key="tagItem.id">{{tagItem.name}}</nuxt-link>
     </div>
