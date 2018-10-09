@@ -42,10 +42,10 @@
       <p><i><a href="https://yasinchan.com/api" target="_blank">Api</a></i> 的开源地址为 <i><a href="https://github.com/yasinchan/blog-be" target="_blank">https://github.com/yasinchan/blog-be</a></i>。</p>
     </div>
     <div class="rightAbout-p">
-      <p>希望这篇博客可以记录我的学习和生活，</p>
+      <p>这篇博客用来记录分享我的学习和生活，如果有幸能让你看到我的博客，</p>
     </div>
     <div class="rightAbout-p">
-      <p>同时也希望如果有幸你能看到我的博客，也可以多多给我提建议哦~（将来会添加评论功能）</p>
+      <p>希望能给你带来帮助，同时也希望可以给我多多提建议哦~（将来会添加评论功能）</p>
     </div>
     <div class="rightAbout-p"></div>
     <div class="rightAbout-title">
