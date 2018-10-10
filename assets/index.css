@@ -361,7 +361,7 @@ a {
 
 .postTitle h1 {
   color: #fff;
-  text-shadow: 0 0 5px #ccc;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
 }
 
 .postInfo {
