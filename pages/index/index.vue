@@ -21,21 +21,15 @@
   const stamp = tinydate('{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}');
   import { getPosts } from '~/service/api.js';
   export default {
-    data() {
-      return {
-        posts: []
-      }
-    },
-    mounted() {
-      getPosts().then(res => {
-        let posts = res.data.result.map(v => {
-          let updatedAt = v.updated_at;
-          v.updated_at = stamp(new Date(updatedAt));
-          return v;
-        })
-        this.posts = posts;
+    async asyncData () {
+      let res = await getPosts();
+      let posts = res.data.result.map(v => {
+        let updatedAt = v.updated_at;
+        v.updated_at = stamp(new Date(updatedAt));
+        return v;
       })
-    }
+      return { posts: posts }
+    },
   }
 </script>
 

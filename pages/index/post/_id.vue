@@ -28,28 +28,14 @@
   const stamp = tinydate('{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}');
   import { getPostById } from '~/service/api.js';
   export default {
-    data() {
+    async asyncData ({ store, params }) {
+      let res = await getPostById(params.id);
+      let result = res.data.result
+      result.created_at = stamp(new Date(result.created_at))
+      result.updated_at = stamp(new Date(result.updated_at))
       return {
-        blogInfo: {}
+        blogInfo: result
       }
-    },
-    asyncData ({ store, params }) {
-      getPostById(params.id).then(res => {
-        let result = res.data.result
-        result.created_at = stamp(new Date(result.created_at))
-        result.updated_at = stamp(new Date(result.updated_at))
-        return {
-          blogInfo: result
-        }
-      })
-    },
-    mounted() {
-      getPostById(this.$route.params.id).then(res => {
-        let result = res.data.result
-        result.created_at = stamp(new Date(result.created_at))
-        result.updated_at = stamp(new Date(result.updated_at))
-        this.blogInfo = result;
-      })
     }
   }
 </script>
