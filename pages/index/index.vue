@@ -19,7 +19,8 @@
 <script>
   import tinydate from 'tinydate';
   const stamp = tinydate('{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}');
-  import { getPosts } from '~/service/api.js';
+  // import { getPosts } from '~/service/api.js';
+  import axios from 'axios';
   export default {
     data() {
       return {
@@ -27,7 +28,7 @@
       }
     },
     mounted() {
-      getPosts().then(res => {
+      axios.get('/api/post').then(res => {
         let posts = res.data.result.map(v => {
           let updatedAt = v.updated_at;
           v.updated_at = stamp(new Date(updatedAt));
