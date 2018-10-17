@@ -23,20 +23,20 @@
     name: "pictures",
     data() {
       return {
+        pictures: [],
         showImage: "https://qiniu.yasinchan.com/image/default2.jpg",
         showTime: "2018-10-1"
       }
     },
-    asyncData () {
-      return getUploads().then( res => {
+    mounted() {
+      getUploads().then( res => {
         let result = res.data.result;
         result.forEach(v => {
           v.updated_at = stamp(new Date(v.updated_at));
           v.created_at = stamp(new Date(v.created_at));
         })
-        return { pictures: result }
+        this.pictures = result
       })
-
     },
     methods: {
       showPic(e) {
