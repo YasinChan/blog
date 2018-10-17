@@ -29,14 +29,15 @@
         ]
       }
     },
-    async asyncData () {
-      let res = await getNotes();
-      let result = res.data.result
-      result.forEach(v => {
-        v.updated_at = stamp(new Date(v.updated_at));
-        v.updated_at = v.updated_at.split('-')
+    asyncData () {
+      return getNotes().then( res => {
+        let result = res.data.result
+        result.forEach(v => {
+          v.updated_at = stamp(new Date(v.updated_at));
+          v.updated_at = v.updated_at.split('-')
+        })
+        return { notes: result }
       })
-      return { notes: result }
     }
   }
 </script>

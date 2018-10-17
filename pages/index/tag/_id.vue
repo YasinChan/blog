@@ -21,16 +21,17 @@
   const stamp = tinydate('{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}');
   import { getPostsByTagId } from '~/service/api.js';
   export default {
-    async asyncData ({ store, params }) {
-      let res = await getPostsByTagId(params.id);
-      let result = res.data.result
-      result.forEach(v => {
-        v.created_at = stamp(new Date(v.created_at))
-        v.updated_at = stamp(new Date(v.updated_at))
+    asyncData ({ store, params }) {
+      return getPostsByTagId(params.id).then( res => {
+        let result = res.data.result
+        result.forEach(v => {
+          v.created_at = stamp(new Date(v.created_at))
+          v.updated_at = stamp(new Date(v.updated_at))
+        })
+        return {
+          posts: result
+        }
       })
-      return {
-        posts: result
-      }
     }
   }
 </script>

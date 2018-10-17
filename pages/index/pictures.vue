@@ -27,14 +27,16 @@
         showTime: "2018-10-1"
       }
     },
-    async asyncData () {
-      let res = await getUploads();
-      let result = res.data.result;
-      result.forEach(v => {
-        v.updated_at = stamp(new Date(v.updated_at));
-        v.created_at = stamp(new Date(v.created_at));
+    asyncData () {
+      return getUploads().then( res => {
+        let result = res.data.result;
+        result.forEach(v => {
+          v.updated_at = stamp(new Date(v.updated_at));
+          v.created_at = stamp(new Date(v.created_at));
+        })
+        return { pictures: result }
       })
-      return { pictures: result }
+
     },
     methods: {
       showPic(e) {
