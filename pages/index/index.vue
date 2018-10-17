@@ -22,21 +22,31 @@
   // import { getPosts } from '~/service/api.js';
   import axios from 'axios';
   export default {
-    data() {
-      return {
-        posts: []
-      }
-    },
-    mounted() {
-      axios.get('/api/post').then(res => {
+    // data() {
+    //   return {
+    //     posts: []
+    //   }
+    // },
+    asyncData() {
+      return axios.get('/api/post').then(res => {
         let posts = res.data.result.map(v => {
           let updatedAt = v.updated_at;
           v.updated_at = stamp(new Date(updatedAt));
           return v;
         })
-        this.posts = posts;
+        return {posts: posts}
       })
-    }
+    },
+    // mounted() {
+    //   axios.get('/api/post').then(res => {
+    //     let posts = res.data.result.map(v => {
+    //       let updatedAt = v.updated_at;
+    //       v.updated_at = stamp(new Date(updatedAt));
+    //       return v;
+    //     })
+    //     this.posts = posts;
+    //   })
+    // }
   }
 </script>
 
